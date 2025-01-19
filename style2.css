@@ -67,17 +67,38 @@
       background-position: 0% 50%;
     }
   }
-  
 
 
-  @media (max-width: 768px) {
-    .cv-container {
-      grid-template-columns: 1fr;
-    }
-    .left-column, .right-column {
-      padding: 20px;
-    }
+  /* Make columns stack vertically on smaller screens */
+@media (max-width: 768px) {
+  .cv-container {
+    display: flex;
+    flex-direction: column;
   }
+
+  .left-column, .right-column {
+    padding: 20px;
+    width: 100%;
+  }
+
+  .right-column {
+    background-color: #1d1d1d; /* Match dark mode or make it less white */
+    color: white;
+  }
+
+
+  /* Allow links to wrap on very small screens */
+.nav-links {
+  flex-wrap: wrap; /* Enable wrapping */
+  justify-content: center; /* Center-align the wrapped links */
+}
+
+.nav-links li {
+  flex: 0 1 auto; /* Let links shrink if needed but not disappear */
+  margin-bottom: 10px; /* Add spacing for wrapped links */
+}
+
+}
 
   a {
     text-decoration: none;
@@ -285,8 +306,10 @@ nav .logo {
 
 .nav-links {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   list-style-type: none;
+
+  align-items: center; /* Vertically centers the links */
   margin: 0;
   padding: 0;
 }
@@ -558,3 +581,11 @@ body.dark-mode .right-column .header {
   border-radius: 5px; /* Optional rounded corners */
 }
 
+
+
+
+@media (max-width: 768px) {
+  .nav-links li:last-child {
+    display: none;
+  }
+}

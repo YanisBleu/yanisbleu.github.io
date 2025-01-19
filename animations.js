@@ -161,3 +161,20 @@ darkModeToggle.addEventListener('change', () => {
         localStorage.setItem('theme', 'light');      // Save user preference
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll(".nav-links li");
+    const lastLink = navLinks[navLinks.length - 1];
+  
+    const handleNavLinks = () => {
+      if (window.innerWidth <= 600) {
+        lastLink.style.display = "none";
+      } else {
+        lastLink.style.display = "inline-block"; // Restore it on larger screens
+      }
+    };
+  
+    handleNavLinks(); // Run on page load
+    window.addEventListener("resize", handleNavLinks); // Run on window resize
+  });
+  
