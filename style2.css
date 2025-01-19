@@ -289,7 +289,7 @@ nav {
   backdrop-filter: blur(10px); /* Apply the frosted-glass effect */
   -webkit-backdrop-filter: blur(10px); /* For Safari support */
   border: 1px solid rgba(255, 255, 255, 0.2); /* Add a subtle border */
-  padding: 10px 10px;
+  padding: 10px 60px;
   width: 100%;
   z-index: 1000; /* Keep it above other content */
   transition: background-color 0.3s, box-shadow 0.3s, all 1s ease;;
@@ -324,7 +324,7 @@ nav .logo {
   overflow: hidden;
   color: white;
   font-size: 1.1rem;
-  padding: 0px 1px;
+  padding: 5px 10x;
   transition: color 0.3s ease, background-color 0.3s ease;
   border-radius: 5px;
 }
@@ -587,5 +587,38 @@ body.dark-mode .right-column .header {
 @media (max-width: 768px) {
   .nav-links li:last-child {
     display: none;
+  }
+
+  .nav-links {
+    gap: 15px; /* Reduce spacing between links for smaller screens */
+  }
+
+
+  .header {
+    text-align: center;
+    padding: 30px 10px;
+    background-size: cover; /* Ensure background looks great */
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .header h1 {
+    font-size: 2.1rem; /* Smaller font size */
+    margin-bottom: 5px; /* Reduce margin */
+    font-weight: 600; /* Stronger header text */
+    letter-spacing: 1px; /* Adds a touch of elegance */
+  }
+
+  .header h2 {
+    font-size: 1.5rem; /* Adjust subheader font size */
+    margin-bottom: 5%; /* Reduce margin */
+    letter-spacing: 1px; /* Adds a touch of elegance */
+  }
+
+  .header .infos {
+    columns: 1; /* Stack info list vertically */
+    font-size: 1.3rem; /* Reduce text size for better fit */
+    line-height: 1.5; /* Increase line height for better readability */
+    letter-spacing: 0.5px; /* Adds a touch of elegance */
   }
 }

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found</title>
+  <style>
+    /* GENERAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman';
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    background: linear-gradient(135deg, #6a7d99, #4a6a94, #2c3e50); /* Added third gradient color */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25); /* Soft text shadow for contrast */
+    overflow: hidden;
+  }
+  
+  /* Animation for the page content */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  h1 {
+    font-size: 3.1rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 1s ease-out; /* Fade-in animation */
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4); /* Strong shadow for a dramatic look */
+  }
+  
+  /* Styling for the error message */
+  p {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    color: rgba(255, 255, 255, 0.85); /* Slightly faded text for better readability */
+    animation: fadeIn 1.2s ease-out; /* Fade-in animation with a slight delay */
+  }
+  
+  /* Button (anchor tag style) */
+  a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #4a6a94, #5188e7);
+    border-radius: 8px;
+    border: none;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease, transform 0.2s ease; /* Smooth transitions for hover effect */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+  }
+  
+  a:hover {
+    background: linear-gradient(135deg, #5188e7, #4a6a94); /* Reverse gradient for hover effect */
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  }
+  
+  a:active {
+    transform: translateY(2px); /* Slight press effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Lighter shadow when clicked */
+  }
+  
+  /* Footer */
+  footer {
+    margin-top: 2rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+    animation: fadeIn 1.4s ease-out; /* Fade-in animation with a delay */
+  }
+  
+  /* Responsive Design for smaller screens */
+  @media (max-width: 768px) {
+    body {
+      padding: 60px 20px;
+    }
+  
+    h1 {
+      font-size: 2.5rem;
+    }
+  
+    p {
+      font-size: 1rem;
+    }
+  
+    a {
+      font-size: 1rem;
+      padding: 0.8rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 40px 10px;
+    }
+  
+    h1 {
+      font-size: 1.1rem;
+    }
+  
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  .error-container {
+
+    animation: fadeIn 1.5s ease-out;
+    text-align: center;
+    background-color: #5c8fec;
+    padding: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+}
+  .error-message h1 {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    color: #61c0ff; /* Fun color for the error code */
+    animation: fadeIn 1s ease-in-out;
+}
+
+.error-message p {
+    font-size: 1.5rem;
+    color: #e4e4e4;
+    margin-bottom: 30px;
+}
+
+.error-message a {
+    font-size: 1.2rem;
+    color: #5188e7;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 2px solid #5188e7;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.error-message a:hover {
+    background: linear-gradient(135deg, #5188e7, #4a6a94);
+    color: #fff;
+}
+
+/* Animation for the error message */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}  
+  </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const errorMessage = document.querySelector('.error-message h1');
+    const messages = ['Oops!', 'Page Not Found!', 'Lost in the internet!', 'This page is a mystery!'];
+
+    errorMessage.textContent = messages[Math.floor(Math.random() * messages.length)];
+});
+
+</script>
+</head>
+<body>
+  <header>
+    <h1>404 - Page Not Found</h1>
+  </header>
+
+  <main>
+    <div class="error-container">
+    <div class="error-message">
+    <section>
+    <h1>Oops! 404</h1>
+      <p>The page you are looking for does not exist or has been moved.</p>
+    </section>
+    </div>
+    <section>
+      <a href="/" title="Go back to the homepage">Return to Homepage</a>
+    </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>Don't worry, we all have a bad GPS sometimes. :D</p>
+  </footer>
+</body>
+</html>
