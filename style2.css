@@ -582,8 +582,8 @@ body.dark-mode .right-column .header {
 }
 
 @media (max-width: 500px) {
-  .nav-links li:nth-child(3) {
-      display: none; /* Hide the third link */
+  .nav-links li:nth-child(2) {
+      display: none; /* Hide the two link */
   }
 }
 
