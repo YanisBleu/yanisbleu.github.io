@@ -1,2 +1,1 @@
-# yanisbleu.github.io
-My website
+This is just my website
