@@ -581,7 +581,11 @@ body.dark-mode .right-column .header {
   border-radius: 5px; /* Optional rounded corners */
 }
 
-
+@media (max-width: 500px) {
+  .nav-links li:nth-child(3) {
+      display: none; /* Hide the third link */
+  }
+}
 
 
 @media (max-width: 768px) {
