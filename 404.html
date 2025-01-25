@@ -17,8 +17,9 @@
     font-weight: 300;
     font-size: 1.1rem;
     line-height: 1.5;
-    background: linear-gradient(135deg, #6a7d99, #4a6a94, #2c3e50); /* Added third gradient color */
+    background: linear-gradient(135deg, #4b6c9c, #4a6a94, #2c3e50); /* Added third gradient color */
     color: #fff;
+    animation: fadeIn 0.5s ease-out; /* Fade-in animation */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,35 +28,25 @@
     text-align: center;
     text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25); /* Soft text shadow for contrast */
     overflow: hidden;
+    padding: 20px;
   }
   
-  /* Animation for the page content */
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+  /* Header */
   h1 {
-    font-size: 3.1rem;
+    font-size: 3.3rem;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 3px;
     margin-bottom: 1.5rem;
     animation: fadeIn 1s ease-out; /* Fade-in animation */
-    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4); /* Strong shadow for a dramatic look */
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.6); /* Strong shadow for a dramatic look */
   }
   
   /* Styling for the error message */
   p {
     font-size: 1.2rem;
-    margin: 1rem 0;
-    color: rgba(255, 255, 255, 0.85); /* Slightly faded text for better readability */
+    margin: 1.1rem 0;
+    color: rgb(255, 255, 255); /* Slightly faded text for better readability */
     animation: fadeIn 1.2s ease-out; /* Fade-in animation with a slight delay */
   }
   
@@ -64,8 +55,8 @@
     font-size: 1.2rem;
     text-decoration: none;
     color: #ffffff;
-    padding: 1rem 2rem;
-    background: linear-gradient(135deg, #4a6a94, #5188e7);
+    padding: 1rem 2.3rem;
+    background: linear-gradient(135deg, #4e6f9c, #578ff0);
     border-radius: 8px;
     border: none;
     margin-top: 1.5rem;
@@ -74,7 +65,7 @@
   }
   
   a:hover {
-    background: linear-gradient(135deg, #5188e7, #4a6a94); /* Reverse gradient for hover effect */
+    background: linear-gradient(135deg, #4d83df, #47668f); /* Reverse gradient for hover effect */
     transform: translateY(-5px); /* Slight lift effect */
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
   }
@@ -96,44 +87,66 @@
   /* Responsive Design for smaller screens */
   @media (max-width: 768px) {
     body {
-      padding: 60px 20px;
+      padding: 50px 20px;
     }
   
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.6rem;
     }
   
     p {
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
   
     a {
       font-size: 1rem;
       padding: 0.8rem 1.5rem;
     }
+
+    .error-message h1 {
+    font-size: 3.5rem;
   }
+
+  .error-message p {
+    font-size: 1.2rem;
+  }
+}
 
   @media (max-width: 480px) {
     body {
-      padding: 40px 10px;
+      padding: 30px 10px;
     }
   
     h1 {
-      font-size: 1.1rem;
+      font-size: 1.8rem;
     }
   
     p {
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
+
+    a {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
   }
+
+  .error-message h1 {
+    font-size: 2.5rem;
+  }
+
+  .error-message p {
+    font-size: 0.8rem;
+  }
+
+}
 
   .error-container {
 
     animation: fadeIn 1.5s ease-out;
     text-align: center;
-    background-color: #5c8fec;
+    background-color: #5c8eecda;
     padding: 40px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
     max-width: 600px;
     width: 100%;
@@ -141,49 +154,110 @@
   .error-message h1 {
     font-size: 5rem;
     margin-bottom: 20px;
-    color: #61c0ff; /* Fun color for the error code */
+    color: #68b6ff; /* Fun color for the error code */
     animation: fadeIn 1s ease-in-out;
 }
 
 .error-message p {
     font-size: 1.5rem;
-    color: #e4e4e4;
+    color: #f0f0f0; /* Softer white for readability */
     margin-bottom: 30px;
 }
 
 .error-message a {
     font-size: 1.2rem;
-    color: #5188e7;
+    color: #467cd8;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 11px 22px;
     background-color: #fff;
-    border: 2px solid #5188e7;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 2px solid #4d84e2;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .error-message a:hover {
     background: linear-gradient(135deg, #5188e7, #4a6a94);
     color: #fff;
+    transform: translateY(-5px); /* Slight lift effect */
 }
 
 /* Animation for the error message */
 @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}  
-  </style>
+    0% { opacity: 0; transform: translateY(3px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
 
+body.dark-mode {
+  background: linear-gradient(135deg, #030d5e, #001249, #030033); /* Deeper gradient for richness */
+  color: #dcdcdc; /* Slightly brighter text for better readability */
+  animation: fadeIn 0.5s ease-out; /* Fade-in animation */
+}
+body.dark-mode a {
+  background: linear-gradient(135deg, #1c27c4, #0c39a8);
+  color: #f3f3f3; /* Light text for better contrast on buttons */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add depth */
+  border-radius: 8px; /* Softer edges */
+  transition: all 0.3s ease; /* Smooth hover animations */
+}
+
+body.dark-mode a:hover {
+  background: linear-gradient(135deg, #03103e, #0d266d);
+  color: #f3f3f3; /* Maintain light text on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Glow effect */
+}
+  
+  body.dark-mode .error-container {
+    background: linear-gradient(135deg, #061272, #001249, #060246);
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 3px solid #001249; /* Subtle border */
+    border-radius: 12px; /* Smoother corners */
+  }
+  
+  body.dark-mode .error-message h1 {
+  color: #6197fb; /* Bright, standout color */
+  text-shadow: 0 0 1px rgba(97, 151, 251, 0.8), 0 0 5px rgba(97, 151, 251, 0.5); /* Glow effect */
+}
+
+body.dark-mode .error-message p {
+  color: #c9d1d9; /* Softer, readable text */
+}
+
+body.dark-mode .error-message a {
+  color: #234ea6; /* Slightly muted color for links */
+  background-color: rgba(255, 255, 255, 0.1); /* Transparent button */
+  border: 2px solid #6197fb; /* Highlighted border */
+  border-radius: 6px; /* Rounded corners */
+  padding: 10px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Depth effect */
+  transition: all 0.3s ease; /* Smooth animations */
+}
+</style>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-    const errorMessage = document.querySelector('.error-message h1');
-    const messages = ['Oops!', 'Page Not Found!', 'Lost in the internet!', 'This page is a mystery!'];
-
+document.addEventListener('DOMContentLoaded', () => {
+  // Randomized error message
+  const errorMessage = document.querySelector('.error-message h1');
+  if (errorMessage) {
+    const messages = [
+      'Oops!',
+      'Page Not Found!',
+      'Lost in the internet!',
+      'This page is a mystery!',
+      'Where are you?',
+      'How did we get here?'
+    ];
     errorMessage.textContent = messages[Math.floor(Math.random() * messages.length)];
-});
+  }
 
+  // Enable dark mode if previously selected
+  const isDarkModeEnabled = localStorage.getItem('darkMode') === 'enabled';
+  if (isDarkModeEnabled) {
+    document.body.classList.add('dark-mode');
+  }
+});
 </script>
 </head>
+
 <body>
   <header>
     <h1>404 - Page Not Found</h1>
@@ -191,15 +265,15 @@
 
   <main>
     <div class="error-container">
-    <div class="error-message">
-    <section>
-    <h1>Oops! 404</h1>
-      <p>The page you are looking for does not exist or has been moved.</p>
-    </section>
-    </div>
-    <section>
-      <a href="/" title="Go back to the homepage">Return to Homepage</a>
-    </section>
+      <div class="error-message">
+        <section>
+          <h1>Oops! 404</h1>
+            <p>The page you are looking for does not exist or has been moved.</p>
+        </section>
+      </div>
+        <section>
+          <a href="/" title="Go back to the homepage">Return to Homepage</a>
+        </section>
     </div>
   </main>
 
