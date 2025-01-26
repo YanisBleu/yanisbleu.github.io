@@ -50,9 +50,26 @@ html {
     opacity: 0;
     transform: translateY(20px);
   }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-10px); /* Légère ascension */
+}
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Animation pour faire défiler l'image de gauche à droite puis inversement */
+@keyframes slideAnimation {
+  0% {
+      transform: translateX(0); /* Commence à gauche */
+  }
+  50% {
+      transform: translateX(-40px); /* Milieu du déplacement à droite */
+  }
+  100% {
+      transform: translateX(0); /* Retour à la position initiale */
   }
 }
 
@@ -61,6 +78,12 @@ html {
     opacity: 1;
     transform: translateY(0);
   }
+
+  50% {
+    opacity: 0.5;
+    transform: translateY(-10px); /* Légère remontée avant disparition */
+}
+
   100% {
     opacity: 0;
     transform: translateY(20px);
@@ -135,7 +158,29 @@ html {
 
 
 /* Make columns stack vertically on smaller screens */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
+
+  body, h1, h2, p {
+    transition: font-size 0.6s ease, line-height 0.6s ease;
+  }
+  
+  body {
+    font-size: 1.3rem; /* Augmente la taille du texte */
+    line-height: 1.4; /* Ajuste l'espacement pour une meilleure lisibilité */
+  }
+
+  h1 {
+    font-size: 2.1rem; /* Augmente les titres principaux */
+  }
+
+  h2 {
+    font-size: 2rem; /* Augmente les sous-titres */
+  }
+
+  p {
+    font-size: 1.4rem; /* Ajuste les paragraphes */
+  }  
+  
 .cv-container {
   display: flex;
   flex-direction: column;
@@ -174,6 +219,30 @@ margin-bottom: 10px; /* Add spacing for wrapped links */
 
 
 @media (max-width: 768px) {
+
+  body, h1, h2, p {
+    transition: font-size 0.6s ease, line-height 0.6s ease;
+  }
+  
+  body {
+    font-size: 1.2rem; /* Augmente la taille du texte */
+    line-height: 1.4; /* Ajuste l'espacement pour une meilleure lisibilité */
+  }
+
+  h1 {
+    font-size: 2.1rem; /* Augmente les titres principaux */
+  }
+
+  h2 {
+    font-size: 1.9rem; /* Augmente les sous-titres */
+  }
+
+  p {
+    font-size: 1.3rem; /* Ajuste les paragraphes */
+  }
+
+ 
+
 .nav-links li:last-child {
   display: none;
 }
@@ -211,6 +280,33 @@ margin-bottom: 10px; /* Add spacing for wrapped links */
   letter-spacing: 0.5px; /* Adds a touch of elegance */
 }
 }
+
+
+
+@media (min-width: 1200px) {
+
+  body, h1, h2, p {
+    transition: font-size 0.6s ease, line-height 0.6s ease;
+  }
+
+  body {
+    font-size: 1.5rem; /* Augmente la taille du texte */
+    line-height: 1.5; /* Ajuste l'espacement pour une meilleure lisibilité */
+  }
+
+  h1 {
+    font-size: 2.5rem; /* Augmente les titres principaux */
+  }
+
+  h2 {
+    font-size: 2.2rem; /* Augmente les sous-titres */
+  }
+
+  p {
+    font-size: 1.4rem; /* Ajuste les paragraphes */
+  }
+}
+
 
 
 a {
@@ -393,19 +489,32 @@ text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 
 /* NAVIGATION */
 
+
 nav {
 position: sticky;
 top: 0;
-background: linear-gradient(135deg, rgba(33, 43, 99, 0.9) 30%, rgba(10, 26, 82, 0.8) 70%);
-animation: gradientAnimation 6s infinite alternate; /* Smooth transition */
-background-size: 200% 200%; /* Enlarged gradient for animation */
+height: 100px; /* Hauteur fixe pour la barre */
+width: 100%; /* Toujours prendre toute la largeur */
 backdrop-filter: blur(10px); /* Apply the frosted-glass effect */
 -webkit-backdrop-filter: blur(10px); /* For Safari support */
-border: 1px solid rgba(255, 255, 255, 0.2); /* Add a subtle border */
-padding: 10px 60px;
+align-items: center; /* Aligne les liens verticalement */
+overflow: hidden; /* Cache tout débordement de l'image */
+padding: 10px 20px;
 width: 100%;
 z-index: 1000; /* Keep it above other content */
 transition: background-color 0.3s, box-shadow 0.3s, all 1s ease;;
+}
+
+nav .background-image {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 110%; /* L'image couvre toute la largeur */
+  height: 110%; /* L'image couvre toute la hauteur */
+  z-index: -1; /* Derrière tout le contenu de la barre */
+  object-fit: cover; /* Garde les proportions et évite la déformation */
+  object-position: center; /* Centre l'image */
+  animation: slideAnimation 5s infinite linear; /* Animation fluide */
 }
 
 nav .logo {
@@ -420,9 +529,14 @@ border-radius: 5px;
 .nav-links {
 display: flex;
 justify-content: space-around;
+position: relative; /* Ensures the link can be positioned correctly within the container */
 list-style-type: none;
-
 align-items: center; /* Vertically centers the links */
+background-position: center; /* Keeps the image centered */
+background-repeat: no-repeat;  /* Prevents the image from repeating */
+background-size: cover; /* S'assure que l'image couvre tout l'élément sans se déformer */
+background-size: 100% 100%; /* Enlarged gradient for animation */
+animation: gradientAnimation 10s infinite; /* Smooth transition */
 margin: 0;
 padding: 0;
 }
@@ -457,7 +571,6 @@ transition: background-color 0.3s ease-in-out; /* Smooth fade out */
 .sticky-nav {
 background-color: rgba(4, 21, 59, 0.3); /* Light blue background */
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-animation: gradientAnimation 6s infinite alternate; /* Smooth transition */
 position: fixed;
 top: 0;
 left: 0;
@@ -471,7 +584,7 @@ z-index: 1000;
 height: 90px;
 padding: 0px 10px;
 }
-
+  
 /* Dark Mode Button Styles */
 .dark-mode-toggle {
 position: fixed;
@@ -530,8 +643,8 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 backdrop-filter: blur(10px);
 color: #000; /* Default: Light mode */
 border-radius: 50%;
-width: 45px;
-height: 45px;
+width: 50px;
+height: 50px;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -539,21 +652,26 @@ cursor: pointer;
 transition: all 0.3s ease;
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 position: relative;
+outline: none; /* Retirer l'outline par défaut */
 }
 
 .dark-mode-toggle button:hover {
 transform: scale(1.1);
 box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+background: rgba(255, 255, 255, 0.2);
 }
 
 .dark-mode-toggle button:active {
 transform: scale(1);
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Moon and Sun Icon Transition */
 .dark-mode-toggle button i {
 font-size: 1.5rem;
 transition: transform 0.5s ease, color 0.3s ease;
+
+    will-change: transform, color; /* Optimisation des performances */
 }
 
 /* Dark Mode Styles */
@@ -561,10 +679,18 @@ body.dark-mode .dark-mode-toggle button {
 background: rgba(0, 0, 0, 0.5);
 color: #fff; /* Dark mode: white icon */
 border: 1px solid rgba(255, 255, 255, 0.3);
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Ombre plus marquée pour le mode sombre */ 
 }
 
 body.dark-mode .dark-mode-toggle button i {
 transform: rotate(180deg); /* Smooth rotation effect on icon */
+color: #fff; /* Assurer que l'icône soit bien blanche */
+}
+
+/* Focus pour l'accessibilité : amélioration de la visibilité au clavier */
+.dark-mode-toggle button:focus {
+  outline: 3px solid rgba(0, 179, 255, 0.8); /* Bordure visible au focus */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre pour plus de contraste */
 }
 
 /* Improved Toast Notification Styles */
@@ -586,21 +712,23 @@ opacity: 0;
 transform: translateY(20px);
 transition: opacity 0.5s ease, visibility 0.5s ease-in-out, transform 0.5s ease-in-out;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+pointer-events: none; /* Évite d'interférer avec les autres éléments */
 }
 
 .toast.show {
 visibility: visible;
 opacity: 1;
 transform: translateY(0); /* Toast slides up */
+pointer-events: all; /* Permet d'interagir avec le toast si besoin */
 }
 
 /* Custom Toast Animation */
 .toast-enter {
-animation: toastEnter 0.5s ease-out;
+animation: toastEnter 0.55s ease-out;
 }
 
 .toast-exit {
-animation: toastExit 0.5s ease-in;
+animation: toastExit 0.55s ease-in;
 }
 
 .right-column > * {
@@ -631,3 +759,9 @@ border-radius: 5px; /* Optional rounded corners */
 }
 
 
+/* Image de la bannière */
+.banner-image {
+  width: 10%; /* L'image prend toute la largeur */
+  height: 10%; /* L'image occupe toute la hauteur du conteneur */
+  object-fit: cover; /* L'image couvre l'espace sans être déformée */
+}

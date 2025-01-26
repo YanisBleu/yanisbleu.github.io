@@ -178,3 +178,18 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", handleNavLinks); // Run on window resize
 });
 
+function adjustBackground() {
+  const navLinks = document.querySelector('.nav-links');
+  const stickyNav = document.querySelector('.sticky-nav');
+
+  // Get the screen width
+  const screenWidth = window.innerWidth;
+
+  // Update the background size dynamically
+  navLinks.style.backgroundSize = `${screenWidth}px auto`;
+  stickyNav.style.backgroundSize = `${screenWidth}px auto`;
+}
+
+// Adjust on load and on resize
+window.addEventListener('load', adjustBackground);
+window.addEventListener('resize', adjustBackground);
