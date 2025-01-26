@@ -193,3 +193,61 @@ function adjustBackground() {
 // Adjust on load and on resize
 window.addEventListener('load', adjustBackground);
 window.addEventListener('resize', adjustBackground);
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Store translations for each language
+  const translations = {
+    en: {
+      "Ma Personne": "About Me",
+      "À PROPOS DE MOI": "ABOUT ME",
+      "COMPÉTENCES": "SKILLS",
+      "Je connais": "I know",
+      "J'apprend": "I am learning",
+      "J'utilise": "I use",
+      "Expériences": "Experiences",
+      "professionelles": "professional",
+      "Info Super Utile": "Super Useful Info",
+      "Fan de Jeux vidéo": "Video game fan",
+      "Compositeur et Pianiste": "Composer and Pianist",
+      "L'Art en général :D": "Art in general :D",
+      "Français, langue maternelle.": "French, native language.",
+      "Anglais, compétence professionnelle.": "English, professional proficiency.",
+      "Je jure je fais de super bonne pâtes": "I swear I make amazing pasta",
+    },
+    fr: {
+      "About Me": "Ma Personne",
+      "ABOUT ME": "À PROPOS DE MOI",
+      "SKILLS": "COMPÉTENCES",
+      "I know": "Je connais",
+      "I am learning": "J'apprend",
+      "I use": "J'utilise",
+      "Experiences": "Expériences",
+      "professional": "professionelles",
+      "Super Useful Info": "Info Super Utile",
+      "Video game fan": "Fan de Jeux vidéo",
+      "Composer and Pianist": "Compositeur et Pianiste",
+      "Art in general :D": "L'Art en général :D",
+      "French, native language.": "Français, langue maternelle.",
+      "English, professional proficiency.": "Anglais, compétence professionnelle.",
+      "I swear I make amazing pasta": "Je jure je fais de super bonne pâtes",
+    },
+  };
+
+  const currentLang = { lang: "fr" }; // Default language
+
+  // Function to toggle language
+  function toggleLanguage() {
+    const newLang = currentLang.lang === "fr" ? "en" : "fr";
+    const elements = document.querySelectorAll("*");
+    elements.forEach((el) => {
+      if (el.children.length === 0) {
+        const translation = translations[newLang][el.textContent.trim()];
+        if (translation) el.textContent = translation;
+      }
+    });
+    currentLang.lang = newLang;
+  }
+
+  // Add event listener to the language toggle button
+  document.getElementById("languageButton").addEventListener("click", toggleLanguage);
+});

@@ -413,9 +413,9 @@ scroll-margin-top: 70px; /* Adjust based on your navbar height */
 
 .skills{
   list-style-type: none;
-  padding: 0;
-  font-size: 1.rem;
-  letter-spacing: 1.1px;
+  padding: 5px;
+  font-weight: 600;
+  letter-spacing: 1.05px;
   margin: 0 0 1rem;
 }
 
@@ -426,8 +426,9 @@ scroll-margin-top: 70px; /* Adjust based on your navbar height */
 }
 
 .skills li:hover {
-  transform: scale(1.03);  /* Enlarges the item */
+  transform: scale(1.02);  /* Enlarges the item */
   color: #0f264ead;  /* Changes color on hover */
+  transition: transform 0.1s ease, color 0.1s ease,;
 }
 
 .skills li:hover .icon {
@@ -435,7 +436,7 @@ scroll-margin-top: 70px; /* Adjust based on your navbar height */
 }
 
 .skills li .icon {
-  margin-right: 0.5rem;
+  margin-right: 0.8rem;
   transition: color 0.2s ease;
 }
 
@@ -577,8 +578,6 @@ left: 0;
 width: 100%;
 z-index: 1000;
 }
-
-
 
 .sticky-nav.shrink {
 height: 90px;
@@ -765,3 +764,67 @@ border-radius: 5px; /* Optional rounded corners */
   height: 10%; /* L'image occupe toute la hauteur du conteneur */
   object-fit: cover; /* L'image couvre l'espace sans être déformée */
 }
+
+
+.language-toggle {
+  position: fixed;
+  top: 12px;
+  left: 15px;
+  z-index: 1000;
+  }
+
+.language-toggle button {
+background: rgba(255, 255, 255, 0.2);
+border: 1px solid rgba(255, 255, 255, 0.3);
+backdrop-filter: blur(10px);
+color: #000; /* Default: Light mode */
+border-radius: 50%;
+width: 50px;
+height: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+transition: all 0.3s ease;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+position: relative;
+outline: none; /* Retirer l'outline par défaut */
+}
+
+.language-toggle button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.language-toggle button:active {
+  transform: scale(1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+  
+  /* Moon and Sun Icon Transition */
+  .language-toggle button i {
+  font-size: 1.5rem;
+  transition: transform 0.5s ease, color 0.3s ease;
+  will-change: transform, color; /* Optimisation des performances */
+  }
+  
+  /* Dark Mode Styles */
+  body.dark-mode .language-toggle button {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff; /* Dark mode: white icon */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Ombre plus marquée pour le mode sombre */ 
+  }
+  
+  body.dark-mode .language-toggle button i {
+  transform: rotate(180deg); /* Smooth rotation effect on icon */
+  color: #fff; /* Assurer que l'icône soit bien blanche */
+  }
+  
+  /* Focus pour l'accessibilité : amélioration de la visibilité au clavier */
+  .language-toggle button:focus {
+    outline: 3px solid rgba(0, 179, 255, 0.8); /* Bordure visible au focus */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre pour plus de contraste */
+  }
