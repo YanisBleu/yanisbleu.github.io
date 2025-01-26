@@ -290,8 +290,8 @@ margin-bottom: 10px; /* Add spacing for wrapped links */
   }
 
   body {
-    font-size: 1.5rem; /* Augmente la taille du texte */
-    line-height: 1.5; /* Ajuste l'espacement pour une meilleure lisibilité */
+    font-size: 1.3rem; /* Augmente la taille du texte */
+    line-height: 1.4; /* Ajuste l'espacement pour une meilleure lisibilité */
   }
 
   h1 {
@@ -303,7 +303,7 @@ margin-bottom: 10px; /* Add spacing for wrapped links */
   }
 
   p {
-    font-size: 1.4rem; /* Ajuste les paragraphes */
+    font-size: 1.5rem; /* Ajuste les paragraphes */
   }
 }
 
@@ -413,9 +413,9 @@ scroll-margin-top: 70px; /* Adjust based on your navbar height */
 
 .skills{
   list-style-type: none;
-  padding: 5px;
-  font-weight: 600;
-  letter-spacing: 1.05px;
+  padding: 0;
+  font-size: 1.rem;
+  letter-spacing: 1.1px;
   margin: 0 0 1rem;
 }
 
@@ -426,9 +426,8 @@ scroll-margin-top: 70px; /* Adjust based on your navbar height */
 }
 
 .skills li:hover {
-  transform: scale(1.02);  /* Enlarges the item */
+  transform: scale(1.03);  /* Enlarges the item */
   color: #0f264ead;  /* Changes color on hover */
-  transition: transform 0.1s ease, color 0.1s ease,;
 }
 
 .skills li:hover .icon {
@@ -436,7 +435,7 @@ scroll-margin-top: 70px; /* Adjust based on your navbar height */
 }
 
 .skills li .icon {
-  margin-right: 0.8rem;
+  margin-right: 0.5rem;
   transition: color 0.2s ease;
 }
 
@@ -764,3 +763,5 @@ border-radius: 5px; /* Optional rounded corners */
   height: 10%; /* L'image occupe toute la hauteur du conteneur */
   object-fit: cover; /* L'image couvre l'espace sans être déformée */
 }
+
+

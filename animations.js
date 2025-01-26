@@ -193,4 +193,3 @@ function adjustBackground() {
 // Adjust on load and on resize
 window.addEventListener('load', adjustBackground);
 window.addEventListener('resize', adjustBackground);
-
