@@ -765,3 +765,53 @@ border-radius: 5px; /* Optional rounded corners */
 }
 
 
+#discord-section {
+  text-align: center;
+  padding: 35px 10px;
+  background-size: cover; /* Ensure background looks great */
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: gradientAnimation 10s ease infinite;
+  
+  
+}
+
+#discord-status {
+  font-weight: bold;
+  color: #fff;
+  padding: 20px 15px;
+  background-color: rgba(0, 0, 0, 0.6); /* Background for readability */
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 15px;
+  animation: gradientAnimation 10s ease infinite;
+  background: linear-gradient(135deg, #00000020, #00000017, #00000015); /* Added third gradient color */
+}
+
+.online {
+  color: #43b581;
+}
+
+.idle {
+  color: #faa61a;
+}
+
+.dnd {
+  color: #f04747;
+}
+
+.offline {
+  color: #747f8d;
+}
+
+#discord-status:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+  transform: scale(1.05); /* Slight scale effect */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: fadeIn 0.3s ease-out;
+  animation: gradientAnimation 10s ease infinite;
+  background: linear-gradient(135deg, #00000025, #00000023, #00000020); /* Added third gradient color */
+
+}
+

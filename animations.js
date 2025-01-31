@@ -18,6 +18,48 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   };
 
+  function connectToLanyard(userId) {
+    const socket = new WebSocket("wss://api.lanyard.rest/socket");
+
+    socket.onopen = () => {
+        socket.send(JSON.stringify({ op: 2, d: { subscribe_to_id: userId } }));
+    };
+
+    socket.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        if (data.t === "INIT_STATE" || data.t === "PRESENCE_UPDATE") {
+            updateDiscordStatus(data.d);
+        }
+    };
+}
+
+function updateDiscordStatus(data) {
+  const discordStatus = document.getElementById("discord-status");
+  let statusHTML = `Currently: <span class="${data.discord_status}">${data.discord_status.toUpperCase()}</span>`;
+
+  // Check for activities (Spotify, Twitch, etc.)
+  const activities = data.activities;
+  if (activities.length > 0) {
+      activities.forEach(activity => {
+          let activityTime = '';
+          const startTime = activity.start_timestamp;
+
+          if (activity.type === 2) { // Listening to Spotify
+              statusHTML += `<br>🎵 Listening to <strong>${activity.details}</strong> by ${activity.state}${activityTime}`;
+          } else if (activity.name === "Twitch") { // Streaming on Twitch
+              statusHTML += `<br>📺 Streaming on <a href="https://twitch.tv/${activity.state}" target="_blank">Twitch</a>${activityTime}`;
+          } else { // Any other game or activity
+              statusHTML += `<br>🎮 Playing: ${activity.name}${activityTime}`;
+          }
+      });
+  }
+
+  discordStatus.innerHTML = statusHTML;
+}
+
+// Connect to WebSocket
+connectToLanyard("798310011335606315");
+
   // Scroll event listener with debouncing
   let debounceTimer;
   window.addEventListener("scroll", () => {
