@@ -1,3 +1,6 @@
+// Hey there 👋 if you find any bugs or have suggestions, feel free to reach out!
+// You can find me on Discord yanisbleu
+
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll(".section");
   const navbar = document.getElementById('navbar');
@@ -33,10 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 }
 
+
+// Connect to WebSocket
+connectToLanyard("798310011335606315");
+
 function updateDiscordStatus(data) {
   const discordStatus = document.getElementById("discord-status");
   let statusHTML = `Currently: <span class="${data.discord_status}">${data.discord_status.toUpperCase()}</span>`;
+  const activityCard = document.getElementById("discord-activity-card");
+  activityCard.innerHTML = ""; // Reset the card content
 
+  
   // Check for activities (Spotify, Twitch, etc.)
   const activities = data.activities;
   if (activities.length > 0) {
@@ -44,8 +54,21 @@ function updateDiscordStatus(data) {
           let activityTime = '';
           const startTime = activity.start_timestamp;
 
-          if (activity.type === 2) { // Listening to Spotify
-              statusHTML += `<br>🎵 Listening to <strong>${activity.details}</strong> by ${activity.state}${activityTime}`;
+          if (activity.type === 2 && activity.name === "Spotify") {
+            const trackName = activity.details;
+            const artist = activity.state;
+            const album = activity.assets?.large_text;
+            const imageHash = activity.assets.large_image.replace("spotify:", "");
+            const imageUrl = `https://i.scdn.co/image/${imageHash}`;
+            const spotifyCard = `
+              <div class="activity-card spotify-card">
+                <img src="${imageUrl}" alt="Album cover" />
+                <p>🎵 Listening to <strong>${trackName}</strong></p>
+                <p>👤 ${artist}</p>
+                ${album ? `<p style="font-size: 0.8rem;">💿 ${album}</p>` : ""}
+              </div>
+            `;
+            activityCard.innerHTML += spotifyCard;
           } else if (activity.name === "Twitch") { // Streaming on Twitch
               statusHTML += `<br>📺 Streaming on <a href="https://twitch.tv/${activity.state}" target="_blank">Twitch</a>${activityTime}`;
           } else { // Any other game or activity
@@ -57,8 +80,6 @@ function updateDiscordStatus(data) {
   discordStatus.innerHTML = statusHTML;
 }
 
-// Connect to WebSocket
-connectToLanyard("798310011335606315");
 
   // Scroll event listener with debouncing
   let debounceTimer;
@@ -235,3 +256,17 @@ function adjustBackground() {
 // Adjust on load and on resize
 window.addEventListener('load', adjustBackground);
 window.addEventListener('resize', adjustBackground);
+
+
+document.getElementById('download-toggle').addEventListener('click', () => {
+  const resumeElement = document.getElementById('resume-section');
+  const opt = {
+      margin:       1,
+      filename:     'Yanis.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2 },
+      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+  };
+  html2pdf().from(resumeElement).set(opt).save();
+});
+

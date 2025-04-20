@@ -8,12 +8,13 @@
   <link rel="shortcut icon" href="banner.JPG">
   <link href="https://fonts.googleapis.com/css3?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
   <link rel="stylesheet" href="style2.css">
   <script src="animations.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-  <div id="loading" class="spinner">
+<div id="loading" class="spinner">
+    <h2>Welcome to My Portfolio</h2>
     <div class="dot1"></div>
     <div class="dot2"></div>
   </div>
@@ -26,6 +27,11 @@
         <i class="fa fa-moon"></i> 
       </button>
     </div>
+    <div class="download-toggle">
+      <button id="downloadToggle" aria-label="Download Resume">
+        <a href="resume.pdf" download="Yanis.pdf"> <i class="fa fa-cloud-download-alt" download="Yanis.pdf"></i></a>
+      </button>
+  </div>
     <img class="background-image" src="mapmc.jpg" alt="Image de fond">
     <ul class="nav-links">
       <li><a href="#section1">Ma Personne</a></li>
@@ -36,50 +42,59 @@
   </nav>    
   <div class="container">
       <div class="left-column">
+        <div class="profile-container">
+        <div class="badge badge-left top" data-tooltip="JavaScript - Enjoying the challenge">💻 JS</div>
+        <div class="badge badge-left bottom" data-tooltip="CSS - Making things look good">🎨 CSS</div>
         <img class="portait" src="omgdraw.jpg" loading="lazy" alt="A drawing my lover made, it look beautiful"/>
+        <div class="badge badge-right top" data-tooltip="Git - Keeping track of things">🛠️ Git</div>
+        <div class="badge badge-right bottom" data-tooltip="HTML5 - Building the structure">⚡ HTML</div>
+      </div>
         <div id="toast" class="toast">Dark Mode Enabled</div>
         <section id="discord-section">
           <h2>My Discord Status</h2>
           <p id="discord-status">Loading...</p>
+          <div id="discord-activity-card"></div>
         </section>
-        <div class="section">
+        <div class="socials" id="socials">
           <p>
              </i><a href="https://github.com/YanisBleu" target="_blank"><i class="icon fab fa-github text-darkblue"></i></a>YanisBleu
           </p>
-        </div>
+        </div>      
         <div class="section">
         <section id="section1">
           <h2>À PROPOS DE MOI</h2>
           <p>
-            Le <strong>Front-end</strong> est une de mes passions : j’aime imaginer des interfaces modernes et les dynamiser avec des animations élégantes. Mes deux technos de coeur sont <strong>Javascript</strong> et <strong>Python</strong>, que j’utilise depuis plusieurs années. Je suis aussi Fullstack : PHP, MySQL, Duo HTML/CSS... 
+            Le <strong>Front-end</strong> est ma passion: j’aime imaginer des interfaces modernes et les dynamiser avec des animations élégantes. 
           </p>
           <p>
-            De nature tranquille dans mon travail, j’aime apprendre de nouvelles technologies, ainsi que passé du temps à résoudre des problèmes. Mes valeurs de travail : flexibilité, performance et sérieux.
+            De nature curieux dans mon travail, j’aime apprendre de nouvelles technologies, ainsi que passé du temps à résoudre de nouveaux défis pour améliorer mes compétences et élargir mes connaissances. 
           </p>
         </section>
         </div>
         <div class="section">
-        <section id="section2">
           <h2>COMPÉTENCES</h2>
-          <h3>Je connais</h3>
+        <section id="section2">
+          <div class="category"><h3>Je connais</h3>
           <ul class="skills">
             <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>HTML5 &#124; CSS3 &#124; JS</strong></li>
             <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>Git &#124; Github</strong></li>
             <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>Lua</strong></li>
           </ul>
-          <h3>J'apprend</h3>
+        </div>
+          <div class="category"><h3>J'apprend</h3>
           <ul class="skills">
             <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>PHP</strong></li>
-            <li><i class="icon fas fa-check-circle text-darkblue"></i> Swift</li>
+            <li><i class="icon fas fa-check-circle text-darkblue"></i> Swift </li>
             <li><i class="icon fas fa-check-circle text-darkblue"></i> MySQL</li>
           </ul>
-          <h3>J'utilise</h3>
+        </div>
+          <div class="category"><h3>J'utilise</h3>
           <ul class="skills">
             <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>Windows</strong></li>
             <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>Arch Linux</strong></li>
-            <li><i class="icon fas fa-check-circle text-darkblue"></i> <strong>IOS</strong></li>
-            <li><i class="icon fas fa-check-circle text-darkblue"></i> License Visual Studio et Adobe</li>
+            <li><i class="icon fas fa-check-circle text-darkblue"></i> License Visual Studio</li>
           </ul>
+        </div>
         </section>
         </div>
         <div class="section">
@@ -123,11 +138,9 @@
           </section>
             <p>
             <ul class="experience-list">
-              Réalisations de sites web, d’interfaces et d’applications web <br>
-              Intégration de templates Photoshop<br>
-              Animations CSS / JS<br>
-              Responsive design<br>
-              UI / UX Design<br>
+              Réalisations de sites web, d’interfaces et d’applications web / Intégration de templates Photoshop<br>
+              Animations CSS / JS <br>
+              Responsive UI / UX Design<br>
               Optimisation des performances<br>
               Projets en équipe, utilisation quotidienne Git et Github<br>
             </ul>

@@ -1,4 +1,7 @@
 /* GENERAL */
+/* Hey there 👋 if you find any bugs or have suggestions, feel free to reach out!
+   You can find me on Discord yanisbleu */
+
 *{
   margin: 0;
   padding: 0;
@@ -202,11 +205,13 @@ html {
 .nav-links {
 flex-wrap: wrap; /* Enable wrapping */
 justify-content: center; /* Center-align the wrapped links */
+
 }
 
 .nav-links li {
 flex: 0 1 auto; /* Let links shrink if needed but not disappear */
 margin-bottom: 10px; /* Add spacing for wrapped links */
+
 }
 
 }
@@ -411,27 +416,27 @@ scroll-margin-top: 70px; /* Adjust based on your navbar height */
 }
 
 
-.skills{
+/* Skills list under each category */
+.skills {
   list-style-type: none;
   padding: 0;
-  font-size: 1.rem;
   letter-spacing: 1.1px;
-  margin: 0 0 1rem;
+  margin: 0;
 }
 
 .skills li {
   display: flex;
   align-items: center;
-  transition: transform 0.1s ease, color 0.1s ease,;
+  transition: transform 0.1s ease, color 0.1s ease;
 }
 
 .skills li:hover {
-  transform: scale(1.03);  /* Enlarges the item */
-  color: #0f264ead;  /* Changes color on hover */
+  transform: scale(1.03); /* Enlarges the item */
+  color: #0f264aad; /* Changes color on hover */
 }
 
 .skills li:hover .icon {
-  color: #132c5ad0;  /* Changes the icon color */
+  color: #132c5ad0; /* Changes the icon color */
 }
 
 .skills li .icon {
@@ -441,13 +446,63 @@ scroll-margin-top: 70px; /* Adjust based on your navbar height */
 
 /* Improved hover effect for the strong text */
 .skills li strong {
-transition: color 0.3s ease, text-decoration 0.3s ease, text-shadow 0.3s ease;
+  transition: color 0.3s ease, text-decoration 0.3s ease, text-shadow 0.3s ease;
 }
 
 .skills li:hover strong {
-color: #5188e7;  /* Changes the color on hover */
-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  color: #5188e7; /* Changes the color on hover */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
+
+
+/* Style for section container */
+#section2 {
+  display: flex;
+  justify-content: space-between; /* Distribute categories evenly */
+  gap: 2rem; /* Space between categories */
+  margin-top: 1rem; /* Optional: Adds space between title and categories */
+  transition: all 0.3s ease; /* Smooth transition when the layout changes */
+}
+
+/* Ensure each category is evenly spaced and aligned */
+#section2 .category {
+  flex: 1 1 30%; /* Each category takes 30% of the space */
+  min-width: 250px; /* Prevents categories from being too narrow */
+  text-align: center;
+  transition: all 0.3s ease; /* Smooth transition for each category */
+}
+
+/* Style for category titles (Je connais, J'apprend, J'utilise) */
+#section2 h3 {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem; /* Space between the title and skills */
+  text-align: left; /* Align title to the left */
+}
+
+/* Media query for small screens */
+@media (max-width: 850px) {
+  /* Reset styles for small screens */
+  #section2 {
+    display: block; /* Reset to default block layout */
+    margin-top: 0; /* Optional: Reset margin-top */
+    transition: all 0.3s ease; /* Smooth transition for each category */
+  }
+
+  #section2 .category {
+    flex: unset; /* Reset flex properties */
+    min-width: unset; /* Reset min-width */
+    text-align: left; /* Align text to the left */
+    margin-bottom: 1rem; /* Add space between categories */
+    transition: all 0.3s ease; /* Smooth transition for each category */  
+  }
+
+  #section2 h3 {
+    text-align: left; /* Align title to the left */
+  }
+}
+
+
 
 /* RIGHT COLUMN */
 .right-column{
@@ -520,7 +575,7 @@ nav .background-image {
 nav .logo {
 font-size: 1.1rem;
 font-weight: bold;
-color: rgb(41, 82, 121);
+color: rgb(34, 62, 105);
 text-align: center;
 margin-bottom: 10px;
 border-radius: 5px;
@@ -551,14 +606,16 @@ position: relative;
 overflow: hidden;
 color: white;
 font-size: 1.1rem;
-padding: 5px 10x;
+padding: 3px 3px;
 transition: color 0.3s ease, background-color 0.3s ease;
 border-radius: 5px;
 }
 
 .nav-links a:hover {
 color: #fff;
-background-color: rgba(255, 255, 255, 0.2); /* Add hover highlight */
+background-color: rgba(160, 160, 160, 0.2); /* Add hover highlight */
+padding: 3px 3px;
+border-radius: 5px;
 }
 
 
@@ -615,7 +672,7 @@ animation: fadeToLight 0.3s ease-out;
 
 /* Dark Mode for Sections */
 body.dark-mode .right-column {
-background-color: rgb(3, 3, 19); /* Black background */
+background-color: rgb(2, 2, 27); /* Black background */
 color: white; /* White text */
 transition: background-color 0.7s ease, color 0.7s ease; /* Smooth transition */
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
@@ -668,8 +725,8 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 .dark-mode-toggle button i {
 font-size: 1.5rem;
 transition: transform 0.5s ease, color 0.3s ease;
-
-    will-change: transform, color; /* Optimisation des performances */
+will-change: transform, color; /* Optimisation des performances */
+color: #111111ea; /* Assurer que l'icône soit bien blanche */
 }
 
 /* Dark Mode Styles */
@@ -749,7 +806,7 @@ animation-delay: 0.6s; /* Delay for the third child */
 
 /* Dark Mode for the Right Column Header */
 body.dark-mode .right-column .header {
-background-color: rgb(1, 1, 10); /* Black background for header */
+background-color: rgb(1, 1, 20); /* Black background for header */
 color: white; /* White text */
 transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
@@ -813,5 +870,214 @@ border-radius: 5px; /* Optional rounded corners */
   animation: gradientAnimation 10s ease infinite;
   background: linear-gradient(135deg, #00000025, #00000023, #00000020); /* Added third gradient color */
 
+}
+
+.download-toggle {
+  position: fixed;
+  top: 12px;
+  left: 15px;
+  z-index: 1000;
+  }
+
+.download-toggle button {
+background: rgba(255, 255, 255, 0.2);
+border: 1px solid rgba(255, 255, 255, 0.3);
+backdrop-filter: blur(10px);
+color: #000; /* Default: Light mode */
+border-radius: 50%;
+width: 50px;
+height: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+transition: all 0.3s ease;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+position: relative;
+outline: none; /* Retirer l'outline par défaut */
+}
+
+.download-toggle button:hover {
+transform: scale(1.1);
+box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+background: rgba(255, 255, 255, 0.2);
+}
+
+.download-toggle button:active {
+transform: scale(1);
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.download-toggle button i {
+font-size: 1.5rem;
+color: #111111ea; /* Assurer que l'icône soit bien blanche */
+transition: transform 0.5s ease, color 0.3s ease;
+will-change: transform, color; /* Optimisation des performances */
+}
+
+/* Dark Mode Styles */
+body.dark-mode .download-toggle button {
+background: rgba(0, 0, 0, 0.5);
+color: #fff; /* Dark mode: white icon */
+border: 1px solid rgba(255, 255, 255, 0.3);
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Ombre plus marquée pour le mode sombre */ 
+}
+
+body.dark-mode .download-toggle button i {
+transform: rotate(360deg); /* Smooth rotation effect on icon */
+color: #fff; /* Assurer que l'icône soit bien blanche */
+}
+
+
+#discord-activity-card {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.activity-card {
+  display: inline-block;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 12px;
+  padding: 10px;
+  max-width: 250px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.activity-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(29, 185, 84, 0.6); /* Spotify green glow */
+  transition: all 0.3s ease;
+}
+
+
+.activity-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.activity-card p {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.spotify-card {
+  border: 1px solid #1DB954;
+  background-color: #1db9541a; /* translucent Spotify green */
+}
+
+.spotify-card p {
+  margin: 0.2rem 0;
+  color: #fff;
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.activity-card.spotify-card {
+  animation: fadeSlideUp 0.6s ease forwards;
+  opacity: 0; /* Needed to allow fade-in */
+}
+
+.profile-container {
+  position: relative;
+  display: inline-block;
+  margin: 2rem auto;
+  border-radius: 20%;
+  max-width: 220px;
+  margin: auto;
+  display: block;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Badge style */
+.badge {
+  position: absolute;
+  background: #0f264a;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 2.1rem;
+  font-weight: bold;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: floatBadge 5s ease-in-out infinite;
+  white-space: nowrap;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+/* Positioning and Color*/
+.badge-left.top    { left: -240px; top: 0; background-color: #f7df1e;}
+.badge-left.bottom { left: -240px; bottom: 0; background-color: #2965f1;}
+.badge-right.top   { right: -245px; top: 0; background-color: #a05209;}
+.badge-right.bottom{ right: -270px; bottom: 0; background-color: #e44d26}
+
+/* Floating animation */
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+
+/* Mobile: hide badges or reposition */
+@media (max-width: 768px) {
+  .badge {
+    display: none; /* Hide badges on mobile */
+  }
+}
+
+
+.badge:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  animation: tooltipIn 0.4s forwards;
+  opacity: 0;
+  
+}
+
+@keyframes tooltipIn {
+  to {
+    opacity: 1;
+  }
+}
+
+
+.badge-left.top:hover::after {
+  background: linear-gradient(135deg, #f7df1e, #f0c500); /* JS - Yellow gradient */
+}
+
+.badge-left.bottom:hover::after {
+  background: linear-gradient(135deg, #2965f1, #3a8bf7); /* CSS - Blue gradient */
+}
+
+.badge-right.top:hover::after {
+  background: linear-gradient(135deg, #a05209, #d67200); /* HTML - Brown gradient */
+}
+
+.badge-right.bottom:hover::after {
+  background: linear-gradient(135deg, #f1502f, #ff5c42); /* Git - Red gradient */
 }
 
